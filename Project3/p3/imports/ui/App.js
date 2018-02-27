@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Image, Menu, Header, Segment, Embed, Table, Container } from 'semantic-ui-react';
+import { Image, Menu, Header, Segment, Embed, Table, Container, List } from 'semantic-ui-react';
 
 import ErrorBoundary from './ErrorBoundary.js';
 import Info from './Info.js';
 import NumberGuess from './NumberGuess.js';
+import CaesarCypher from './CaesarCypher.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -33,6 +34,9 @@ export default class App extends Component {
       case 'numGuess':
         component=<NumberGuess />
         break;
+      case 'caesarCypher':
+        component=<CaesarCypher />
+        break;
     }
 
 
@@ -58,6 +62,14 @@ export default class App extends Component {
                 onClick={this.handleMenuItemClick.bind(this)}
               >
                 Number Guess
+              </Menu.Item>
+              <Menu.Item
+                name='caesarCypher'
+                active={true}
+                active={this.state.activeItem==='caesarCypher'}
+                onClick={this.handleMenuItemClick.bind(this)}
+              >
+                Caesar Cypher
               </Menu.Item>
             </Menu>
             {component}
