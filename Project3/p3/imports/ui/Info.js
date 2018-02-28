@@ -46,13 +46,13 @@ export default class Info extends Component {
 			},
 		]
 		return(
-			<div>
+			<Segment inverted color='grey'>
 	        	<Header inverted color='grey'>Welcome!</Header>
 	        	<Segment inverted color='grey'>Please choose a game from the menu above</Segment>
 	        	<Segment inverted color='grey'>
 	        		<Accordion inverted color='grey' defaultActiveIndex={-1} panels={panels} />
 	        	</Segment>
-	        </div>
+	        </Segment>
 		)
 	}
 }

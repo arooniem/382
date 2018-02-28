@@ -45,7 +45,7 @@ export default class CaesarCypher extends Component {
 		}
 	}
 
-	//taking clearText from App and returning ciphered text
+	//taking clearText and returning ciphered text
 	encrypt(clearText) {
 		clearText = clearText.toUpperCase();
 		let encrypted = '';
@@ -79,7 +79,7 @@ export default class CaesarCypher extends Component {
 	
 	render() {
 		return(
-			<div>
+			<Segment inverted color='grey'>
 				<Header inverted color='grey'>Caesar Cypher</Header>
 				<Segment.Group >
 					<Segment inverted color='grey'><Icon name='unlock' />Plain Text: &nbsp; <Input size='mini' onChange={this.handleClearText.bind(this)} /></Segment>
@@ -99,7 +99,7 @@ export default class CaesarCypher extends Component {
 					<Checkbox checked={this.state.shiftL} onChange={this.directionChange.bind(this)} label='Shift Left'/>
 					</Segment>
 				</Segment.Group>
-			</div>
+			</Segment>
 		);
 	}
 

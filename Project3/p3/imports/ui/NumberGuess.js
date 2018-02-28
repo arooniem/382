@@ -9,17 +9,27 @@ GameMode.initEnum(['setup','play','win','error']);
 export default class NumberGuess extends Component {
 	constructor(props){
 		super(props);
-		this.state = {restData: '', gameTracker:'setup', lowRange:1, highRange:100, lowGuesses: [], highGuesses: [], currentGuess:'', totalGuesses: 0, loading: false, error: ''};
+		this.state = {
+			restData: '', 
+			gameTracker:'setup', 
+			lowRange:1, 
+			highRange:100, 
+			lowGuesses: [], 
+			highGuesses: [], 
+			currentGuess:'', 
+			totalGuesses: 0, 
+			loading: false, 
+			error: ''
+		};
 	}
 
+	//function for testing without calling out
 	getRandomInteger(min, max){
 		return(Math.floor(Math.random()*(max-min+1)+min))
 	}
 
 	getRESTData(min, max) {
 	    // Call server-side method to return data
-	    // Why bind(this) below? See http://stackoverflow.com/questions/35581611/exception-in-delivering-result-of-invoking-typeerror-is-not-a-function-in-met
-	    // Note that setState is asynchronous, which means you should not immediately (sequentially) depend on a setState changing
 		if (Meteor.isClient) {
 	      Meteor.call("getRestData", min, max, function(error, results) {
 	        try{
@@ -64,11 +74,13 @@ export default class NumberGuess extends Component {
   	}
 
   	handleGuessButton(event){
+  		//determine if guess is low or high, put in appropriate side
   		if(this.state.currentGuess < this.state.restData){
 	  		let arr = this.state.lowGuesses;
 	  		arr.push(this.state.currentGuess);
 	  		this.setState((prevState, props) => ({
 	  			lowGuesses: arr, 
+	  			//track guesses
 	  			totalGuesses: prevState.totalGuesses + 1, 
 	  		}))
 	  		this.inputRef.focus();
@@ -81,7 +93,11 @@ export default class NumberGuess extends Component {
 	  		}))
 	  		this.inputRef.focus();
 	  	} else {
-	  		this.setState({gameTracker: 'win'})
+	  		//if not high or low then win
+	  		this.setState((prevState, props) => ({
+	  			gameTracker: 'win', 
+	  			totalGuesses: prevState.totalGuesses + 1
+	  		}))
 	  	}
   	}
 
@@ -97,14 +113,26 @@ export default class NumberGuess extends Component {
 
   	handleReplay(){
   		//reset all state
-  		this.setState({restData: '', gameTracker:'setup', lowRange:1, highRange:100, lowGuesses: [], highGuesses: [], currentGuess:'', totalGuesses: 0, loading: false, error:''})
+  		this.setState({
+  			restData: '', 
+  			gameTracker:'setup', 
+  			lowRange:1, 
+  			highRange:100, 
+  			lowGuesses: [], 
+  			highGuesses: [], 
+  			currentGuess:'', 
+  			totalGuesses: 0, 
+  			loading: false, 
+  			error:''
+  		})
   	}
 
   	gameModeSwitch(){
+  		//determine which gamemode to display
 		switch(this.state.gameTracker) {
 			case GameMode.setup.name :
 				return( 
-					<div className='game'>
+					<Segment inverted color='grey'>
 						<span>Select the number range, click Play, and start guessing!</span><br />
 						<span>Between <NumericInput 
 							strict
@@ -128,14 +156,17 @@ export default class NumberGuess extends Component {
 							mobile={false}
 						/></span><br />
 						<Button primary loading={this.state.loading} onClick={this.handlePlayButton.bind(this)}>Play</Button>
-					</div>
+					</Segment>
 				)
 			case GameMode.play.name :
 				return( 
-					<div>
+					<Segment inverted color='grey'>
 						<Segment inverted color='grey' raised>
-						<span>Guess a number between {this.state.lowRange} and {this.state.highRange}</span><br />
-						<span><Input onChange={this.handleGuessInput.bind(this)} ref={this.handleRef.bind(this)}/><Button primary onClick={this.handleGuessButton.bind(this)}>Guess</Button>{this.state.totalGuesses}</span>
+							<span>Guess a number between &nbsp; {this.state.lowRange} &nbsp; and &nbsp; {this.state.highRange}</span><br />
+							<span>
+								<Input onChange={this.handleGuessInput.bind(this)} ref={this.handleRef.bind(this)} action={{content:'Guess', onClick:this.handleGuessButton.bind(this), primary:true }} />
+								&nbsp;Total Guesses: {this.state.totalGuesses}
+							</span>
 						</Segment>
 						<Segment.Group raised horizontal>
 							<Segment inverted color='grey'>
@@ -147,11 +178,11 @@ export default class NumberGuess extends Component {
 								<List inverted color='grey' items={this.state.highGuesses} />
 							</Segment>
 						</Segment.Group>
-					</div>
+					</Segment>
 				)
 			case GameMode.win.name :
 				return( 
-					<div>
+					<Segment inverted color='grey'>
 						<Segment inverted color='grey' raised>
 						<span>You correctly guessed {this.state.restData} in {this.state.totalGuesses} guesses!!</span><br />
 						<span><Button primary onClick={this.handleReplay.bind(this)}>Replay?</Button></span>
@@ -166,28 +197,27 @@ export default class NumberGuess extends Component {
 								<List inverted color='grey' items={this.state.highGuesses} />
 							</Segment>
 						</Segment.Group>
-					</div>
+					</Segment>
 				)
 			case GameMode.error.name :
 				return(
-					<div>
 						<Segment inverted color='grey' raised>
 							<p>Oops, you've found an error</p>
 							<p>Error: {this.state.error}</p>
 							<span><Button primary onClick={this.handleReplay.bind(this)}>Replay?</Button></span>
 						</Segment>
-					</div>
 				)
 		}
   	}
 
 	render() {
 		return(
-			<div><Segment inverted color='grey'>
+			<Segment.Group>
+			<Segment inverted color='grey'>
 				<Header inverted color='grey'>Let's play Number Guess!</Header>
 				</Segment>
 				{this.gameModeSwitch()}
-			</div>
+			</Segment.Group>
 		)
 	}
 }
