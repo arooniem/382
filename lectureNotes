@@ -1,0 +1,479 @@
+Week 1
+
+Reactivity
+	A concept; exactly what it implies; a block of code, that will re-run whenever a reactive data source inside it changes
+
+React vs React Native
+	we will use reactjs; native is a mobile framework
+	both products are fbook products
+	explore links from slide
+
+Front-End Developer
+	explore links in slide
+
+Full-Stack JavaScript Framework
+	meteor is a web server, but also does client side
+	meteor seperates files via folders of client and server
+	do not upload node_modules from your meteor folder; zip the rest
+	
+GTF - Yehui
+
+For project 1, can skip step 6 (mobile)
+not node modules or .meteor folders in zip/upload
+
+transpiled - combination of translator and compiler: take something that looks sort of like javascript and turn it into real javascript. meteor takes source files and turns it into real javascript.
+
+in initial install of react we did --save which made it global, no need to do that each time
+
+'app extends component' creates an object called app, and inherits everything component has
+
+jsx - unique syntax, html that's inside of the javascript; can only put one html type element at a time, meaning you can only render 1 html item, such as a <div> or <span> etc. Can have anything inside of that but can't do <div></div><div></div>
+
+map - for each item in the array, do something
+
+=> takes the place of the function, or in otherwords for [x] apply [code]
+
+components typically start with an uppercase; create the file with uppercase and when in use
+
+key in Task is unique because jsx requires each <li> to be unique
+
+Week 2
+
+Start using breakpoints; you'll need to be familiar with them and it will make your life easier throughout the term
+
+You can input 'debugger' w/in clientside code to force a breakpoint. Server-side debugging will be covered later on.
+
+Software testing - understand the general categories of testing
+
+MongoDB (or just mongo) - is a nosql or not only sql database stores in databases; check references in slide;
+
+Concept of a cursor: a control structure that enables you to traverse over the records of the database. Typically a result of some kind of query.
+
+React - uses jsx files (though they are now .js files). Big idea: creating components so taht we can encapsulate (like an engine). This allows you to pull something out and replace it without blowing everything up. Our goal for the term is to make these components, which will be jsx compnenents.
+
+Component and component files start with uppercase. jsx files are not template files; it takes the code and converts it to javascript.
+
+Packages typically include the following: react library; component (base class for react); react-dom (dom specific methods). These are brought in via ES6 import statements.
+
+ES6 - has both import and export statement. Used to load external javascript modules into the code. Why export and not put a bunch of global functions? javascript frameworks have become huge. this helps to reduce the size of your frameworks.
+
+import React from 'react' is importing whatever is assigned as default inside the react file. {} is the component that you are importing that is not the default
+
+if you love this stuff and plan to do this in the future, read through the es6 import/export links
+
+es6: use class instead of function class.
+
+let is the new var; const creates a variable that cannot be changed
+
+`${last}, ${first}` template literal. Puts what's in the curly braces; puts whats between curly braces. try with ${3+4}
+
+Arrow functions (or fat arrow functions) 
+
+Expectation for computer science is to teach a class in a new language that you need to learn on your own. do the work to learn.
+
+'this' is supposed to reference the thing that is being referenced (kind of self-explanatory but still can be really confusing)
+
+changing the file from jsx to js now screws up your sublime syntax highlighting (because it thinks it should be js instead of es6)
+
+reactCodePenSample for seeing your stuff in real time
+
+look at facebook based hello world (expanded) app code
+
+include certain packages; define own class (can pull in other components either i made or packages); 
+
+for week 3 lab: create our own components. need a default class, and then can have other classes. use 1 file, 1 component (meaning new files per component or put all components in one file?)
+
+component has to have a render; render has to have a return; return has to have html in the form of jsx; javascript w/in jsx has to be in curly braces (including non-code notes);
+
+utilizing a component in your jsx == <ComponentGoesHere />
+
+props are things being based in, the way you pass information between components; state is the thing you want to track; if you change the state of anything it calls the render function
+
+props are read only (immutable); state is read-write
+
+Week 3
+
+Lab 3 is to create the adder and sort letters
+	may need to re-install babel runtime each project
+	once you get to the point Lab 3 is displayed, save the files elsewhere as basically a template so you don't have to redo css, html, js files
+	for the lab we are creating our components w/in the App file. for the future we should be creating a different file for the components
+
+functions and method: methods are functions within an object; all your components are objects
+
+constructor cannot use the fat arrow; can on all the other methods. we'll be using a constructor in our Apps, and use the format we are seeing in lab3
+
+depracated - targetd to be decomissioned or no longer used; step before discontinued
+
+side note - can create a .bat file to run a shell script; he uses go.bat and just types go for it to run the script that says metoer --localhost:3005;
+
+to change a state: this.setState({foo});
+
+scope: who has access to what. .bind(this) means it's going to make sure that it properly binds the objecs to each other
+
+syntheticEvent - not in true javascript, but from the transpiling?
+
+Wed
+
+Bonus PHP info: should learn laravil if you want to know php; some people mix w/ html but that's hard to read, so he keeps them seperate; old language so more prevelant which means more people have tried to hack it
+
+project 2: 4 components involved (4 files) - app (including entered text), ceaser, aes and error component
+
+ascii used to be 7, then 8, 
+	have to get ascii number of a string or come up with another way, but need to circle around the alphabet
+
+stub - a garbage function that shows the program itself will work; can use the stub before you get the cypher algorithm figured out. basically get the whole program functioning (returning and dispalying correctly), then change it to do what you need.
+
+aes - the cipher text took 1 line of code; the output/plain text took 2 lines of code
+
+slider - think about how to do in meteor. state variable that's tracking the number of the shift, so when drag the slider or change the text box, take that number and set the state variable. by the change that initiates the change in the whole interface. 
+
+can get a React extension in chrome for help troubleshooting
+
+splitting your components into different files: helps with encapsulation; helps with teamwork (seperate people can work on specific components without messing with the whole thing); doesn't require everything to be loaded at once (only loads the object/file when it is called).
+
+passing something into component - <ComponentName param="Test" />; becomes props.param; use this to validate the input for cypher components. if the input is not what's expected then throw an error (for instance, a symbol or a capital)
+
+Friday
+
+props & proptypes (required for project 2)
+
+constructor the first method of the instance; it's making the thing (can't use 'this' yet because 'this' is being made)
+
+control parameters (PropTypes)
+required or not, data types, etc.
+
+import PropTypes (npm install) a library [in slides, firstParamRequired is just firstParam from other slides. required is just for demonstration purposes. PropTypes.string etc is needed]
+
+if a type is optional, you may still want a default. that's what defaultProps is for, specifying a default value for when they don't pass in the optional.
+
+if the only purpose of your prop type is to set a state, you can have an error in your constructor
+
+react ui errors (also required for project 2)
+
+try/catch/finally - try something, if it doesn't work, output error code instead. finally is whatever happens, will always run with or without error. goes to error code and moves to finally. none of this works for react ui errors. so if you do it will produce a cryptic error or crash. see link in power point (if he puts a link it's because he thinks it will help)
+
+error boundaries - copy the error code but adapt it; needs a default export; remove logerror; function needs to set the state or prop as the error in order to render it
+
+<div><errorbo><Component /></errob></div>
+
+try not to set any styles in react, use css. however, there are some libraries that do this, so you may not always get away from it.
+
+react lifecycle events
+if you change state, events fire; if you change props, events fire (if props are immutable, how do they change?) if the parent changes the props it is passing into the children, they know their props have changed. does not mean the state has to change.
+
+state & lifecycle may not be 100% anymore, as it isn't an official document, but lays it all out very well, accessible.
+
+Week 4
+
+Monday
+
+Clean up after yourself. If you have something going on in the component, be prepared for the component to go away (componentWillUnmount) so that those resources go away with it as well
+
+bound reactive control: for setting the state as the input text and setting the value of the input to the same
+
+look into life cycle prop changes from notes
+
+pass info to Component via App ( <Compnent someData = this.blah />)
+
+Friday
+
+use array for caeser cypher; make an alphabet, search for it, then pull back that number (direction)(slides); will need to address circling and also numbers being different
+
+4 topics:
+client and server side code
+http call
+iterating through items for display
+keys
+
+important to keep client and server separate; security, database, cross-site scripting could all be exploited if you don't keep it separated well
+
+rest api calls - common arch using http calls to urls; calls equate to api; talking in http; used to use soap
+
+graphql - emerging adaptation of rest; is similar; allows for more flexibility without having to depend on specific rest api
+
+https://jsonplaceholder.typicode.com/ for making json to test with
+
+we need to have meteor add http support in our system; add http, use the call method (import)
+
+if(meteor.isserver) forces the code to be run on the server, can't run if it's on the client side. why do we care? security; cross-domain must be run from the server
+
+http call can be asynchronous or synchronous. we're going with s because AS requires a callback before
+
+meteor imports/api - meteor.methods is creating objects as functions; allows you to make something only going to run on thes erver but available to the client; called from client via meteor.call(). how are these talking to each other? ajax. this is built into meteor. http.js file in the api gets loaded in via main.js in server; import file
+
+node.js is doing both client and server stuff; 
+
+see slide to walk through a rest call (anatomy of a rest call)
+
+renderrestdata() returns jsx return <component data=props />
+
+handling errors - javascript errors are trapped in try, catch, find. any code you want to trap surround it in this. any error that occurs there will go to the catch; finally executes whether or not there's an error (something like killing a connection somewhere)
+
+Week 5
+
+Monday
+
+Lab: taking http-call program, adding a second button to pull down data; hand-held through lab. part 4 discussion points - takeaways to think about, will be covered in lecture
+
+http - have to use json.parse json.stringify
+
+status code - (think 404 error), will get status codes back with rest api; may need to have to do something with it
+
+arc - ability to do rest calls within chrome:
+
+display a variabl in jsx: { variable }
+
+creating a list with react: you have to make each element unique; in lecture the li that keeps getting created has a unique key; .map - call whatever is in parantheses for every item in array; second param is the index value, in order to access this just put in a variable
+
+side-not - fat arrow is actually called lambda function
+
+
+Friday - mid-term prep
+
+javascript, python, c#, java, php (5 top languages you should be learning)
+
+understand LAMP and MEAN
+
+'double curly braces' will get you everytime
+
+child classes - do inherit props
+
+super is the base class
+
+asynchronus/synchronus - synchronus (which utilizes blocking) can make coding the server side easier; 
+
+jsx components and unique identifiers (like multiple <li> elements)
+
+GraphQL - emerging adaptation of REST (something like it will replace REST within the next couple of years); instead of having fixedn endpoints (/1234) you have fewer and specify the info you want
+
+Meteor.methods - look at the guide
+
+Opportunistic UI - you can write the same code that runs on the client and server, and will attempt to do some of the stuff on the client which will make the interface fast
+
+event.preventDefault() - traditional webpages used form for input; you'd put a submit button, and when someone clicked submit you would go to another page, so you could group info and submit; we are attempting to not chagne the webpage (data on the wire) the info is all behind the scenes. pD is used to prevent the default method from happening, like if you didn't want a click to happen for a button
+
+
+Week 6
+
+Monday
+Midterm Wednesday
+
+Project 3 will be up tomorrow; playing around with REST, symantic UI,(other things). The goal is to play around with symantic ui. extra credit - recreate caeser cypher.
+
+react is extremely popular but based on node.js. can be a pain to work with these different packages because sometimes it can be broken and hard to find where.
+
+getting packages: how do i install them? npm (node package manager). common for these packages to have 3: github, npmjs.com, their own website. normally easy to find the github from npm website, not always the case in reverse. (having your own github website is helpful, i need to start practicng doing that with our projects).
+
+semantic-ui is amazing
+
+project - 16 hours to do. should be easier than the last project in some senses (less logic?)
+
+utilize the page size changing/adaptive ui
+
+Friday
+Exam review:
+what is transfered between client/server in meteor app? data not objects
+why must bind this? to allow the event hander method to reference the class instance object
+	this becomes the button, binding overwrites taht making this the class (component)
+
+due monday by midnight; worth 10 points of extra credit;
+go to lab6, find first page, put in sliders (1-50) that control rows and columns, generate random letter from an alphabet array, graph grows dynamically; don't forget to put keys for each letter
+
+could play with semantic-ui table
+
+or use a class name attribute, and use a non-poportional (letters are all the same size)
+
+hint: try to produce arrays of arrays (an array of the alphabet per each row and column)
+
+Week 7
+Monday
+Meteor can output an array directly if it is an array of jsx elements/objects
+
+gamestates as different components: not really necessary; you could also just directly put the code in the main app (instead of directing it to a component). if you're going to use seperate components, at least keep them in the same file
+
+scope is involved with lambda functions, which we'll discuss later
+
+enumerations is an ability to use terms in place of some other type of coded techniques. the idea of being able to use some type of structured list to make your code easier to understand.
+
+when using enumeration:
+
+loggin: such as console.log(color.red)
+type safety: you should not be able to change the valuers or types
+memebership check: you should
+
+lab 7:
+random generator; can change the 'html' in the url to 'plain' which creats a page with only the number you need, no other html
+
+to grab from: in the api, change the url
+rechange the min & max to be variables
+
+remember: do not use semantic-uis number bar, but the one from github
+
+be careful with asynchronus stuff: for instance if you do console.log in the function of the call you may not have the info back yet; do it in the restcall function, or do an while loop to check the value of the state restdata. a wait statement to check if the value of restdata is null or empty then wait until it has something, then you proceed.
+
+create variable to store jsx to move from setup to plaing, not multiple components but different jsx for one (setting gamestates)
+
+Error Game Mode: should come from http call, not from errorboundary
+
+Wednesday
+Can now embed code in Canvas; link to the codesandbox
+In the Sandbox you can add dependencies (just like saving packages) and then import them into the file
+There's stuff at the bottom of the file to make it render in the sandbox
+
+extra cred: can do a bunch of stuff (functions) in the render method before returning what to display
+
+turn the matrix into word search: mouse could go across and cross out the letters, would have x amount of words, randomize their locations and front to back; fill in the gaps with other random letters
+
+project3
+project 4 due friday of week 10, 2.5 weeks for that one; assume 15-20 hours for project3
+
+4 game states in the project; supposed to reprasent different conditional jsx to display; equivalent of a switch statement (which we saw when we did the menu); convert that to enumerations for the different gamestates. based on where you're at determines what displays in the program. try to avoid creating new components for gamestates.
+
+const outside global scope of the class (avoids having to say this.items)
+
+enumerations: supposed to be something that forces you to use more consistent programming. also, we are using a lot of packages from online. inside of those packages someone wrote that code and published it. you want to make it so that when you publish your packages, you want them to be more solid and bullet proof. limit that person to the choices they can utilize.
+
+we need to do some enumeration for the game states and the switch states so that they cannot be changed
+
+how do you update the state of super from its child component?
+can call parent function from the child by adding a prop that passes the function (this.toggle.bind(this))
+
+(!this.state.itemFunction means not this.state.itemFunction)
+
+Week 8
+Monday
+Pure Functions
+means if i have a specific input i will get back the same result every single time. the same idea as an algorithm. building blocks of javascript.
+definition/general concept: to avoid shared state, mutating(changing data) and avoiding side effects.
+
+
+Function in general.
+key concept mapping
+procedures: sequence of steps, basics of programming. avoid making the whole program procedural (we are learning to be reactive, waiting for something to happen and respond). procedurals are not as stable, due to the fact if you change a, b c and the following need to change or could be broken.
+input output: write a function that does something that communicates with other parts of the system.
+
+limit the scope of a function to its bare minimum. change the variables, change the functions to be accurate to what it is doing (avoid copying and pasting) 
+
+unpure functions:
+normal functions, unreasonable to exclude these at all times, but where possible try to avoid. getrandomint for instance,w ill not return the same thing every single time, same as getdatetime. (we'll work on hwo to convert something that is unpure to a pure). easy unpure detection is to analyze a function and determine if calling the function without using the return's value (look at the slides for the rest of this)
+
+shared state and side effects
+it would seem the fundamental of react you can't create pure functions, because the shared state can keep changing. props can be changed because they are being based in from state.
+
+scope
+typically think of global and local, but that's not quite accurate. h2o does not exist in nature. water is hydronich. same idea. more to the story.
+
+localscope more accurately 'block scope' (curly braces) [javascript closures is a side story]. floating curly braces can go wherever they want (if, for while, switch). they create local or block scope. shadowing - variable inside a local scope that is the same as 'global' scope. scope has to do with visibility. why do we care? get rid of .bind(this) - update constructor to get rid of it? because we are concerned about the state, we want to always focus on the object. alternative is stateless components. not every single compnent that we create requires us to change the state. if it doesn't it is a great candidate for a pure function.
+
+codesandbox (Phil can't get metor to work there yet) stateless functions to look at. using the lambda, with anonymous function, don't have to worry about 'this' scope. can still use prop types, input boxes (with the local). debatable when something interacts with the screen if it's a pure function (input/output).
+
+pure function in outside file. same as local, except export default (which happens at the bottom?)and needs to be imported as usual.
+
+let c = {a} > new es6 feature where it creates the property with the same name, and grab the object (if an object)
+
+...a - spread operator, takes what's left-over.
+
+
+Friday
+
+Understanding about the state; big concept of immutability (can't change). tricky with js. (remember, goal of pure function is to avoid side effects, or if it does you know exactly what they are). so that's why states are a porblem. the difficulty with reactive programs is the need to change, which goes against immmutability. but there is a right way to change state and a wrong way.
+
+what's in js that prevents change? const. if const is an object, you can change the props of that object, so it is not immutable. state is just an object. setstate changes state and rerenders, but you could do this.state.ojbect.c = 2 and it would change the state without rerendering. big problem.
+
+merging of the notes about immutiability in the following areas:
+
+.slice() gets contents of an array and assign it to the variable. if you don't do this, and you change the variable, then you're changing the state via the new variable, but not rerendering or updating state. (you can change the reference from either variable). still linked with slice!
+
+[you gotta map it!]?
+
+cloning - two different types, cloning deep-cloning. deep-cloning goes down deep, cuts the link. there's a package you can bring in lodash. use _ when importing.
+
+objects - json.parse, json.stringify does break the link between the original object and creates a new one. you lose all the methods of that object doing this. the right way is to bring in lodash and do _.cloneDeep(object).
+
+this issue has been around for a long time, and you run into it all over the program
+
+setState is an asynchronous call. we have no idea how long it will take for the state to be updated.
+
+every time you setState, you're telling the program to call render. consolidate setStates into one call, and make it the last thing that's done in the method
+
+Week 9
+Monday
+
+Project 4
+error is a flag hanging on the input field
+you can do any layout you want, just have to use semantic-ui component
+
+bouncing balls: tricky because of the changing state
+
+clarify on extra cred: student's class - expecting some type of clas that itself has an array in it, and it's going to be the thing that holds the student information (scores). this class needs to be able to do the things to add/remove, sort. not the user interface, the thing that helps you manage the students. create the student object in your state and then manipulate. 
+
+same thing for option 2. ball class. normal and not inherited from react. has a method to be able to draw itself (working with the canvas object). more complicated, coupled to ui a little more.
+
+class Ball {constructor(){}method()}. will need to instatiate it.
+
+animation link: request animation frame is pretty simple. call it the first time and recall itself.
+
+bouncing: rect x,y 0 is the top left. circle it is the center. have to account for radius.
+
+Wednesday
+Goal is to go big picture, taking in both projects, then drill down to some specifics. sample code in week 9.
+
+Big Pic:
+how will you design? each project has different needs. don't cut and paste to start these projects. if not using the menu start from scratch.
+
+number 2 you will need 2 react components for this and ball class
+
+agile programing: a popular methodoigy. development process is broken up into sprints. do a lot of prep work, code in 1/2 week segments, and after the spring have deliverables. idea is get something up as soon as possible, then focus on teh piece and iterate through it. so as soon as possible you want to create something you can see, you can debug. the more code you add without testing, the more code can go wrong without you knowing it.
+
+list item that scrolls: could use pages instead; to make it scroll, go to css, make a width and height and add overflow:scroll;
+
+bar chart package; just x and y;
+
+talk about how to convert something; students class only an object to hold students, doesnt draw anything (see sample code). created an instate of the class in state at the instatiation of react component. then you can clone from state, push, and put back in state. clonedeep so you get the function. remember, if you have an object, and the name of the object is the same as the variable, just put in the object
+
+project 2
+canvas with a border, circular objects that bounce around. problem: user interface is supposed to be updated based on what's in thes tate. you need to have a parent child relationship. the child simply responds to changes from the parent. parent class where all the changes occur. parent class says to requestanimationframe(), and update the state of itself. it has the x y locations, request animation updates those, and it passes the props stuff to the child. the child class is what actually does stuff to the animation. enhancement is you can use ball
+
+parent class has the ball class, and requestanimationframe, passes via props to child; child does ui updates
+
+Friday
+Students class should have some methods
+add
+ add a name and score in internal array
+ check the bucket and add to the letter grade bucket
+stats?	
+clear
+grade bucket
+method for rendering graph data
+method for removing a single student
+grade bucket: instead of arrays use an object props that are each grade and the numbers of that grade.
+
+bar chart
+x,y scale (auto scales), letter grades. will have to dig into the options of the bar chart to make it look nice. phil could not get labels to display no matter what he did.
+
+react easy chart bring in a lot of node modules, a lot of them are d3 modules.
+
+list items are labels with icons, so the icon can be clickable with a callback. need to figure out some way to know which list item to delete (key? id?), in order to delete that entry from your student array.
+
+do error checking while they are typing in (input label, change color etc.). variable in the render that could change depending on if error true.
+
+error for trying to add a number without a name or vice versa.
+
+comparison - array sorting @ w3 schools. sorts strings alphabetically. you can add in the function a comparison (we are sorting on objects not strings). this is for extra credit.
+
+next week is no new material. next friday is review for final exam. we'll talk about the projects monday and wednesday.
+
+
+bouncing balls
+
+request animation frame in parent class
+
+to begin, lifecycle states to know when to begin animatino frame in parent
+
+to start get changes in app to display in child simply with console.log
+
+get rect to move
+convert to circle
+
+
+

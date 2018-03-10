@@ -1,0 +1,23 @@
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    margin-left: 10px;
+    color: black;
+    background-color: gray !important;
+}
+body a {
+    color: #8b8b27;
+    text-decoration: none;
+}
+
+.game{
+	background-color: gray;
+}
+
+.container {
+	background-color: gray;
+}
+
+.ui.checkbox label{
+	color: white !important;
+}

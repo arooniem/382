@@ -1,0 +1,11 @@
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    margin-left: 10px;
+    color: black;
+    background-color: #F5F5DC;
+}
+body a {
+    color: #8b8b27;
+    text-decoration: none;
+}

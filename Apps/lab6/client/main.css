@@ -1,0 +1,18 @@
+/* CSS declarations go here */
+.pdfViewer{
+	width:50%;
+	height: 5em;
+}
+
+#render-target{
+	background-color: grey;
+}
+
+ul{
+	list-style-type: none;
+}
+
+li{
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 1.2em;
+}
