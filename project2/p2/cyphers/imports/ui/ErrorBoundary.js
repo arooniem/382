@@ -9,17 +9,17 @@ export default class ErrorBoundary extends Component {
 
 	componentDidCatch(error, info) {
 		//Display error UI if errors present
-		this.setState({hasError: true, error: error, info: info});
+		this.setState({hasError: true, error: error.toString(), info: info});
 		console.log(error, info);
 	}
 
 	render() {
 		if (this.state.hasError) {
 			return(
-				<div className='container'>
-					<h1>Something went wrong.</h1>
-					<p>Error: {this.state.error.toString()}</p>
-					<p>Info: {this.state.info.componentStack}</p>
+				<div>
+					<h1>Oops! Looks like you ran into an error!</h1>
+					<h1>{this.state.error}</h1>
+					<h1>Info: {this.state.info.componentStack}</h1>
 				</div>
 			);
 		}
